@@ -1,0 +1,68 @@
+﻿@model HouseShop.Models.House.HouseViewModel
+
+@if (Model.Id.HasValue)
+{
+    <h1>Update</h1>
+}
+else
+{
+    <h1>Add</h1>
+}
+
+<div>
+    <form method="post" enctype="multipart/form-data">
+        <input asp-for="Id" type="hidden" />
+        <input asp-for="CreatedAT" type="hidden" />
+        <input asp-for="ModifiedAT" type="hidden" />
+
+        <div class="form-group row">
+            <label asp-for="Name" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Name" class="form-control" />
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label asp-for="Description" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Description" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Address" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Address" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Size" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Size" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="Condition" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Condition" class="form-control" />
+            </div>
+        </div>
+
+
+
+        @if (Model.Id.HasValue)
+        {
+            <input asp-action="edit" asp-controller="house" type="submit" class="btn btn-primary" value="Update">
+            <input asp-action="delete" asp-controller="house" asp-for="Id" type="submit" class="btn btn-danger" value="Delete">
+        }
+        else
+        {
+            <input asp-action="add" asp-controller="house" type="submit" class="btn btn-primary" value="Add">
+        }
+        <a asp-action="index" class="btn btn-primary">Index</a>
+
+    </form>
+</div>
